@@ -3,6 +3,7 @@ import postsModel from './posts-model.js';
 //var ObjectId = require('mongoose').Types.ObjectID;
 
 export const findPosts = () => postsModel.find();
+export const findRestaurantPosts = (restaurantID) => postsModel.find({ restaurant: restaurantID })
 export const findUserPost = (userID) => postsModel.find({ user: userID });
 // followed is an array of user IDs
 export const findFollowedPosts = (followed) =>

@@ -10,7 +10,7 @@ import UserController from './controllers/user/user-controller.js';
 import AuthController from './controllers/users/auth-controller.js';
 
 // process.env.DB_CONNECTION_STRING || 
-const CONNECTION_STRING = 'mongodb+srv://admin:webdev@foodi.lt0omz3.mongodb.net/foodi?retryWrites=true&w=majority'
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://localhost:27017/foodi';
 
 mongoose.connect(CONNECTION_STRING)
 

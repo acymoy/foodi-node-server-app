@@ -7,6 +7,7 @@ const PostController = (app) => {
     })
 
     app.get('/api/posts', findPosts);
+    app.get('api/posts/restaurant/:uid', findPostsByRestaurantId);
     app.get('/api/posts/user/:uid', findPostsByUserId);
     app.get('/api/posts/followed/:uid', findPostsByFollowedUsers);
     app.post('/api/posts', createPost);
@@ -17,6 +18,12 @@ const PostController = (app) => {
 const findPosts = async (req, res) => {
     const posts = await dao.findPosts();
     res.json(posts);
+}
+
+const findPostsByRestaurantId = async (req, res) => {
+    const restaurantId = req.params.uid
+    const posts = await dao.findRestaurantPosts(restaurantId)
+    res.json(posts)
 }
 
 const findPostsByUserId = async (req, res) => {
